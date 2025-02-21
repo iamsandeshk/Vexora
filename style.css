@@ -17,6 +17,10 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+.container {
+    margin-top:80px;
+}
+
 .nav-content {
     display: flex;
     justify-content: space-between;
