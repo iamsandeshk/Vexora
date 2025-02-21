@@ -341,6 +341,58 @@ setInterval(updateCountdown, 1000);
 updateCountdown();
 loadCurrentPoll();
     </script>
+     <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date();
+            targetDate.setHours(22, 0, 0, 0); // Set to 10 PM tomorrow
+            targetDate.setDate(targetDate.getDate() + 1);
+            
+            const now = new Date();
+            const difference = targetDate - now;
+            
+            const hours = Math.floor(difference / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Poll System
+        let voted = false;
+        const pollOptions = document.querySelectorAll('.poll-option');
+        const votes = {
+            '100%': 0,
+            'not-possible': 0
+        };
+
+        pollOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                if (!voted) {
+                    voted = true;
+                    const selectedOption = option.dataset.option;
+                    votes[selectedOption]++;
+                    updatePollResults();
+                }
+            });
+        });
+
+        function updatePollResults() {
+            const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
+            
+            Object.entries(votes).forEach(([option, voteCount]) => {
+                const percentage = (voteCount / totalVotes) * 100;
+                const optionElement = document.querySelector(`[data-option="${option}"]`);
+                optionElement.querySelector('.vote-percentage').textContent = `${percentage.toFixed(1)}%`;
+                optionElement.querySelector('.progress-bar').style.width = `${percentage}%`;
+            });
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
