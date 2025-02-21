@@ -254,55 +254,92 @@
 
     <script>
         // Countdown Timer
-        function updateCountdown() {
-            const targetDate = new Date();
-            targetDate.setHours(22, 0, 0, 0); // Set to 10 PM tomorrow
-            targetDate.setDate(targetDate.getDate() + 1);
-            
-            const now = new Date();
-            const difference = targetDate - now;
-            
-            const hours = Math.floor(difference / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-            
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
+      // Update countdown timer
+async function updateCountdown() {
+    try {
+        const response = await fetch('http://localhost:3000/api/next-episode');
+        const episode = await response.json();
+        
+        const targetDate = new Date(episode.airDate);
+        const now = new Date();
+        const difference = targetDate - now;
+        
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        
+        document.querySelector('.next-episode-title').textContent = 
+            `${episode.series} - Episode ${episode.episodeNumber}`;
+    } catch (error) {
+        console.error('Failed to update countdown:', error);
+    }
+}
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // Poll System
-        let voted = false;
-        const pollOptions = document.querySelectorAll('.poll-option');
-        const votes = {
-            '100%': 0,
-            'not-possible': 0
-        };
-
-        pollOptions.forEach(option => {
-            option.addEventListener('click', () => {
+// Handle poll voting
+async function loadCurrentPoll() {
+    try {
+        const response = await fetch('http://localhost:3000/api/polls/current');
+        const poll = await response.json();
+        
+        // Update poll UI with current data
+        document.querySelector('h2').textContent = poll.question;
+        
+        const pollOptions = document.getElementById('poll-options');
+        pollOptions.innerHTML = '';
+        
+        poll.options.forEach((option, index) => {
+            const totalVotes = poll.options.reduce((sum, opt) => sum + opt.votes, 0);
+            const percentage = totalVotes > 0 ? (option.votes / totalVotes * 100).toFixed(1) : '0.0';
+            
+            pollOptions.innerHTML += `
+                <div class="poll-option" data-option="${index}">
+                    <div class="flex justify-between">
+                        <span>${option.text}</span>
+                        <span class="vote-percentage">${percentage}%</span>
+                    </div>
+                    <div class="mt-2 bg-gray-700 rounded-full">
+                        <div class="progress-bar" style="width: ${percentage}%"></div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        // Add click handlers for voting
+        document.querySelectorAll('.poll-option').forEach(option => {
+            option.addEventListener('click', async () => {
                 if (!voted) {
-                    voted = true;
-                    const selectedOption = option.dataset.option;
-                    votes[selectedOption]++;
-                    updatePollResults();
+                    const optionIndex = option.dataset.option;
+                    try {
+                        await fetch(`http://localhost:3000/api/polls/${poll._id}/vote`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ optionIndex })
+                        });
+                        voted = true;
+                        loadCurrentPoll(); // Refresh poll data
+                    } catch (error) {
+                        console.error('Failed to submit vote:', error);
+                    }
                 }
             });
         });
+    } catch (error) {
+        console.error('Failed to load poll:', error);
+    }
+}
 
-        function updatePollResults() {
-            const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
-            
-            Object.entries(votes).forEach(([option, voteCount]) => {
-                const percentage = (voteCount / totalVotes) * 100;
-                const optionElement = document.querySelector(`[data-option="${option}"]`);
-                optionElement.querySelector('.vote-percentage').textContent = `${percentage.toFixed(1)}%`;
-                optionElement.querySelector('.progress-bar').style.width = `${percentage}%`;
-            });
-        }
+// Initialize
+setInterval(updateCountdown, 1000);
+updateCountdown();
+loadCurrentPoll();
     </script>
     <script src="script.js"></script>
 </body>
