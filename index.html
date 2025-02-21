@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vexora - Your Anime Destination</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom styles */
+      /* Enhanced Countdown Timer Styles */
+.countdown-container {
+    background: linear-gradient(145deg, #1a1c207c 0%, #3b415143 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    margin: 2rem auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    animation: progress 86400s linear;  /* 24 hours in seconds */
+}
+
+.countdown-title {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.countdown-item {
+    text-align: center;
+    position: relative;
+}
+
+.countdown-number {
+    background: linear-gradient(145deg, #2a2d32, #1f2226);
+    border-radius: 15px;
+    padding: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    box-shadow: 
+        inset 0 2px 4px rgba(255, 255, 255, 0.1),
+        0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.countdown-number:hover {
+    transform: translateY(-2px);
+}
+
+.countdown-number::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+.countdown-label {
+    margin-top: 0.8rem;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.next-episode-info {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.next-episode-title {
+    color: #4ecdc4;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.next-episode-time {
+    color: #ff6b6b;
+    font-weight: 500;
+}
+
+@keyframes progress {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Glowing effect for last minute */
+.countdown-urgent .countdown-number {
+    animation: urgentPulse 1s infinite;
+    background: linear-gradient(145deg, #ff6b6b, #c92a2a);
+}
+
+@keyframes urgentPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .countdown-number {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+    
+    .countdown-title {
+        font-size: 1.5rem;
+    }
+}
+        
+        .poll-option {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .poll-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .poll-option.selected {
+            background: #4CAF50;
+        }
+        
+        .progress-bar {
+            height: 24px;
+            background: #2196F3;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="index.html" class="logo">Vexora</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="sources.html">Anime Source</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="overlay"></div>
+
+    <!-- Hero Section -->
+    <div class="container mx-auto px-6 py-16">
+        <div class="countdown-container">
+            <h2 class="countdown-title">Next Episode Countdown</h2>
+            <div class="countdown-grid">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            <div class="next-episode-info">
+                <div class="next-episode-title">Solo Leveling - Episode 8</div>
+                <div class="next-episode-time">Airing Tomorrow at 10:00 PM</div>
+            </div>
+        </div>
+
+        <!-- Poll Section -->
+        <div class="max-w-2xl mx-auto mt-16">
+            <h2 class="text-2xl font-bold mb-6">Will Server Break Again? Arise..</h2>
+            <div id="poll-options">
+                <div class="poll-option" data-option="100%">
+                    <div class="flex justify-between">
+                        <span>100% Possible</span>
+                        <span class="vote-percentage">0%</span>
+                    </div>
+                    <div class="mt-2 bg-gray-700 rounded-full">
+                        <div class="progress-bar w-0"></div>
+                    </div>
+                </div>
+                <div class="poll-option" data-option="not-possible">
+                    <div class="flex justify-between">
+                        <span>Not Possible</span>
+                        <span class="vote-percentage">0%</span>
+                    </div>
+                    <div class="mt-2 bg-gray-700 rounded-full">
+                        <div class="progress-bar w-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date();
+            targetDate.setHours(22, 0, 0, 0); // Set to 10 PM tomorrow
+            targetDate.setDate(targetDate.getDate() + 1);
+            
+            const now = new Date();
+            const difference = targetDate - now;
+            
+            const hours = Math.floor(difference / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Poll System
+        let voted = false;
+        const pollOptions = document.querySelectorAll('.poll-option');
+        const votes = {
+            '100%': 0,
+            'not-possible': 0
+        };
+
+        pollOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                if (!voted) {
+                    voted = true;
+                    const selectedOption = option.dataset.option;
+                    votes[selectedOption]++;
+                    updatePollResults();
+                }
+            });
+        });
+
+        function updatePollResults() {
+            const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
+            
+            Object.entries(votes).forEach(([option, voteCount]) => {
+                const percentage = (voteCount / totalVotes) * 100;
+                const optionElement = document.querySelector(`[data-option="${option}"]`);
+                optionElement.querySelector('.vote-percentage').textContent = `${percentage.toFixed(1)}%`;
+                optionElement.querySelector('.progress-bar').style.width = `${percentage}%`;
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

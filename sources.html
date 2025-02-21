@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Sources - Vexora</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .source-card {
+            transition: transform 0.3s ease;
+        }
+        .source-card:hover {
+            transform: translateY(-5px);
+        }
+        .rating-star {
+            color: #FFD700;
+        }
+        .platform-tag {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 4px 12px;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="index.html" class="logo">Vexora</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="sources.html">Anime Source</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+    </nav>
+    <div class="overlay"></div>
+
+    <!-- Sources Content -->
+    <div class="container mx-auto px-6 py-16">
+        <h1 class="text-4xl font-bold mb-8">Legal Anime Streaming Sources</h1>
+
+        <!-- Featured Sources -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Crunchyroll -->
+            <div class="bg-gray-800 rounded-lg p-6 source-card">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-2xl font-bold">Crunchyroll</h2>
+                    <span class="platform-tag">Premium</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <span class="rating-star mr-2">★★★★★</span>
+                        <span>(4.8/5)</span>
+                    </div>
+                    <p class="text-gray-300">World's largest anime streaming platform with simulcasts and extensive library.</p>
+                    <div class="space-y-2">
+                        <p><strong>Library Size:</strong> 1000+ titles</p>
+                        <p><strong>Simulcast:</strong> Yes</p>
+                        <p><strong>Dubs:</strong> Available</p>
+                        <p><strong>Price:</strong> From $7.99/month</p>
+                        <p><strong>Free Plan:</strong> Available with ads</p>
+                    </div>
+                    <div class="mt-6">
+                        <a href="https://www.crunchyroll.com" target="_blank" class="inline-block bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition">Visit Site</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Funimation -->
+            <div class="bg-gray-800 rounded-lg p-6 source-card">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-2xl font-bold">Funimation</h2>
+                    <span class="platform-tag">Premium</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <span class="rating-star mr-2">★★★★☆</span>
+                        <span>(4.5/5)</span>
+                    </div>
+                    <p class="text-gray-300">Specializing in English dubs with a focus on classic anime series.</p>
+                    <div class="space-y-2">
+                        <p><strong>Library Size:</strong> 700+ titles</p>
+                        <p><strong>Simulcast:</strong> Yes</p>
+                        <p><strong>Dubs:</strong> Extensive collection</p>
+                        <p><strong>Price:</strong> From $5.99/month</p>
+                        <p><strong>Free Plan:</strong> Limited with ads</p>
+                    </div>
+                    <div class="mt-6">
+                        <a href="https://www.funimation.com" target="_blank" class="inline-block bg-purple-500 text-white px-6 py-2 rounded-lg hover:bg-purple-600 transition">Visit Site</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HIDIVE -->
+            <div class="bg-gray-800 rounded-lg p-6 source-card">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-2xl font-bold">HIDIVE</h2>
+                    <span class="platform-tag">Premium</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <span class="rating-star mr-2">★★★★☆</span>
+                        <span>(4.2/5)</span>
+                    </div>
+                    <p class="text-gray-300">Unique selection of anime with exclusive titles and simulcasts.</p>
+                    <div class="space-y-2">
+                        <p><strong>Library Size:</strong> 500+ titles</p>
+                        <p><strong>Simulcast:</strong> Select titles</p>
+                        <p><strong>Dubs:</strong> Available</p>
+                        <p><strong>Price:</strong> $4.99/month</p>
+                        <p><strong>Free Plan:</strong> No free tier</p>
+                    </div>
+                    <div class="mt-6">
+                        <a href="https://www.hidive.com" target="_blank" class="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">Visit Site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Seasonal Anime -->
+        <h2 class="text-3xl font-bold mb-8">Current Season Availability</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <!-- Solo Leveling -->
+            <div class="bg-gray-800 rounded-lg p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-2xl font-bold">Solo Leveling</h3>
+                    <span class="platform-tag">Winter 2024</span>
+                </div>
+                <div class="space-y-4">
+                    <img src="/api/placeholder/800/400" alt="Solo Leveling" class="w-full rounded-lg mb-4">
+                    <div class="space-y-2">
+                        <p><strong>Available on:</strong></p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Crunchyroll - Simulcast (Subbed)</li>
+                            <li>Funimation - English dub (2-week delay)</li>
+                        </ul>
+                        <p><strong>Release Schedule:</strong> Thursdays at 10 PM</p>
+                        <p><strong>Episodes:</strong> 12</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Viewing Guide -->
+            <div class="bg-gray-800 rounded-lg p-6">
+                <h3 class="text-2xl font-bold mb-4">Viewing Guide</h3>
+                <div class="space-y-4">
+                    <p class="text-gray-300">To ensure the best viewing experience:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Use official streaming platforms to support the anime industry</li>
+                        <li>Check your region's availability as licensing varies by location</li>
+                        <li>Consider premium subscriptions for ad-free viewing and earliest access</li>
+                        <li>Enable notifications for new episode alerts</li>
+                    </ul>
+                    <div class="mt-6 p-4 bg-gray-700 rounded-lg">
+                        <p class="text-sm">Note: Streaming availability and times may vary by region. Please check your local platform for accurate information.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Resources -->
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h2 class="text-2xl font-bold mb-6">Additional Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-4 bg-gray-700 rounded-lg">
+                    <h3 class="font-bold mb-2">Subscription Comparison</h3>
+                    <p>Compare features and pricing across different platforms</p>
+                </div>
+                <div class="p-4 bg-gray-700 rounded-lg">
+                    <h3 class="font-bold mb-2">Regional Availability</h3>
+                    <p>Check which services are available in your country</p>
+                </div>
+                <div class="p-4 bg-gray-700 rounded-lg">
+                    <h3 class="font-bold mb-2">Viewing Schedule</h3>
+                    <p>Complete schedule of currently airing anime</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add hover effects for source cards
+        document.querySelectorAll('.source-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
