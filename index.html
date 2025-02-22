@@ -348,8 +348,8 @@
     <div class="container mx-auto px-6 py-16">
 	<div class="video-container">
     <div class="video-preview" onclick="toggleVideo()">
-        <video id="teaser-video" class="video-player" poster="/api/placeholder/640/360">
-            <source src="Solo.mp4 type=mp4>
+          <video id="teaser-video" class="video-player" poster="/api/placeholder/640/360">
+            <source src="Solo.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="play-button">
@@ -373,6 +373,35 @@
         </div>
     </div>
 </div>
+
+	<script>
+function toggleVideo() {
+    const video = document.getElementById('teaser-video');
+    const playButton = document.querySelector('.play-button');
+    
+    if (video.paused) {
+        video.play();
+        playButton.classList.add('hidden');
+    } else {
+        video.pause();
+        playButton.classList.remove('hidden');
+    }
+}
+
+function toggleFullScreen(e) {
+    e.stopPropagation();
+    const video = document.getElementById('teaser-video');
+    if (!document.fullscreenElement) {
+        video.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+document.getElementById('teaser-video').addEventListener('ended', function() {
+    document.querySelector('.play-button').classList.remove('hidden');
+});
+</script>
 
         <div class="countdown-container">
             <h2 class="countdown-title">Next Episode Countdown</h2>
