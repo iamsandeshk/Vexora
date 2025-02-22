@@ -6,7 +6,6 @@
     <title>Vexora - Your Anime Destination</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-	
     <style>
         /* Custom styles */
       /* Enhanced Countdown Timer Styles */
@@ -175,144 +174,10 @@
             transition: width 0.5s ease;
         }
     </style>
-	<style>
-.video-container {
-    background: linear-gradient(145deg, #1a1c20 0%, #1d2f34 100%);
-    border-radius: 15px;
-    padding: 1rem;
-    max-width: 680px;
-    margin: 2rem auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-}
-
-.video-preview {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.video-preview:hover {
-    transform: scale(1.02);
-}
-
-.video-player {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-
-.play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
-    pointer-events: none;
-}
-
-.play-button.hidden {
-    display: none;
-}
-
-.play-button:hover {
-    background: rgba(78, 205, 196, 0.9);
-}
-
-.play-icon {
-    width: 30px;
-    height: 30px;
-    color: white;
-}
-
-.video-info {
-    padding: 1rem 0.5rem;
-}
-
-.video-title {
-    color: #ffffff;
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin: 0 0 0.5rem 0;
-}
-
-.video-metadata {
-    color: #a0a0a0;
-    font-size: 0.9rem;
-}
-
-.separator {
-    margin: 0 0.5rem;
-}
-
-.duration {
-    color: #4ecdc4;
-}
-
-.release {
-    color: #ff6b6b;
-}
-
-@media (max-width: 640px) {
-    .video-container {
-        margin: 1rem;
-    }
-    
-    .video-title {
-        font-size: 1.2rem;
-    }
-    
-    .play-button {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .play-icon {
-        width: 25px;
-        height: 25px;
-    }
-}
-		
-.fullscreen-button {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.fullscreen-button:hover {
-    background: rgba(78, 205, 196, 0.9);
-}
-
-.fullscreen-icon {
-    width: 24px;
-    height: 24px;
-    color: white;
-}
-</style>
-
 </head>
 <body class="bg-gray-900 text-white">
     <!-- Navigation -->
- <div id="container-581055821953cef341a30c3eda7f87f0"></div>
+    <div id="container-581055821953cef341a30c3eda7f87f0"></div>
     <nav class="nav-container">
         <div class="nav-content">
             <a href="index.html" class="logo">Vexora</a>
@@ -336,63 +201,6 @@
 
     <!-- Hero Section -->
     <div class="container mx-auto px-6 py-16">
-	<div class="video-container">
-    <div class="video-preview" onclick="toggleVideo()">
-          <video id="teaser-video" class="video-player" poster="/api/placeholder/640/360">
-            <source src="Solo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="play-button">
-            <svg viewBox="0 0 24 24" fill="none" class="play-icon">
-                <path d="M8 5v14l11-7z" fill="currentColor"/>
-            </svg>
-        </div>
-	     <div class="fullscreen-button" onclick="toggleFullScreen(event)">
-            <svg viewBox="0 0 24 24" fill="none" class="fullscreen-icon">
-                <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="currentColor"/>
-            </svg>
-        </div>
-    </div>
-    </div>
-    <div class="video-info">
-        <h2 class="video-title">Solo Leveling Season 2 - Episode 8 Teaser</h2>
-        <div class="video-metadata">
-            <span class="duration">11 Sec</span>
-            <span class="separator">•</span>
-            <span class="release">Episode Coming Soon</span>
-        </div>
-    </div>
-</div>
-
-	<script>
-function toggleVideo() {
-    const video = document.getElementById('teaser-video');
-    const playButton = document.querySelector('.play-button');
-    
-    if (video.paused) {
-        video.play();
-        playButton.classList.add('hidden');
-    } else {
-        video.pause();
-        playButton.classList.remove('hidden');
-    }
-}
-
-function toggleFullScreen(e) {
-    e.stopPropagation();
-    const video = document.getElementById('teaser-video');
-    if (!document.fullscreenElement) {
-        video.requestFullscreen();
-    } else {
-        document.exitFullscreen();
-    }
-}
-
-document.getElementById('teaser-video').addEventListener('ended', function() {
-    document.querySelector('.play-button').classList.remove('hidden');
-});
-</script>
-
         <div class="countdown-container">
             <h2 class="countdown-title">Next Episode Countdown</h2>
             <div class="countdown-grid">
@@ -428,7 +236,7 @@ document.getElementById('teaser-video').addEventListener('ended', function() {
             <div id="poll-options">
                 <div class="poll-option" data-option="100%">
                     <div class="flex justify-between">
-                        <span id="container-581055821953cef341a30c3eda7f87f0" href="https://maintaintournamentslick.com/rhq68ya1jq?key=5ff81f511bb963b02ca7e0624563c6de">100% Possible</span>
+                        <span>100% Possible</span>
                         <span class="vote-percentage">0%</span>
                     </div>
                     <div class="mt-2 bg-gray-700 rounded-full">
@@ -437,7 +245,7 @@ document.getElementById('teaser-video').addEventListener('ended', function() {
                 </div>
                 <div class="poll-option" data-option="not-possible">
                     <div class="flex justify-between">
-                        <span id="container-581055821953cef341a30c3eda7f87f0" href="https://maintaintournamentslick.com/rhq68ya1jq?key=5ff81f511bb963b02ca7e0624563c6de">Not Possible</span>
+                        <span>Not Possible</span>
                         <span class="vote-percentage">0%</span>
                     </div>
                     <div class="mt-2 bg-gray-700 rounded-full">
@@ -504,7 +312,7 @@ document.getElementById('teaser-video').addEventListener('ended', function() {
     <script src="script.js"></script>
     <script type='text/javascript' src='//pl25933038.effectiveratecpm.com/34/a8/88/34a88893cb2b95e5453a208739ebed78.js'></script>
   <script async="async" data-cfasync="false" src="//pl25933089.effectiveratecpm.com/581055821953cef341a30c3eda7f87f0/invoke.js"></script>
-
+<div id="container-581055821953cef341a30c3eda7f87f0"></div>
     <script type='text/javascript' src='//pl25933150.effectiveratecpm.com/02/e5/f8/02e5f895e06e170284cc9bfd14560d25.js'></script>
 </body>
 </html>
