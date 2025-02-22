@@ -184,6 +184,108 @@
             transition: width 0.5s ease;
         }
     </style>
+	<style>
+.video-container {
+    background: linear-gradient(145deg, #1a1c20 0%, #2d2f34 100%);
+    border-radius: 15px;
+    padding: 1rem;
+    max-width: 640px;
+    margin: 2rem auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.video-preview {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.video-preview:hover {
+    transform: scale(1.02);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.play-button:hover {
+    background: rgba(78, 205, 196, 0.9);
+}
+
+.play-icon {
+    width: 30px;
+    height: 30px;
+    color: white;
+}
+
+.video-info {
+    padding: 1rem 0.5rem;
+}
+
+.video-title {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.video-metadata {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+.separator {
+    margin: 0 0.5rem;
+}
+
+.duration {
+    color: #4ecdc4;
+}
+
+.release {
+    color: #ff6b6b;
+}
+
+@media (max-width: 640px) {
+    .video-container {
+        margin: 1rem;
+    }
+    
+    .video-title {
+        font-size: 1.2rem;
+    }
+    
+    .play-button {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .play-icon {
+        width: 25px;
+        height: 25px;
+    }
+}
+</style>
 </head>
 <body class="bg-gray-900 text-white">
     <!-- Navigation -->
@@ -211,6 +313,47 @@
 
     <!-- Hero Section -->
     <div class="container mx-auto px-6 py-16">
+	    <div class="video-container">
+    <div class="video-preview">
+          <video id="teaser-video" class="video-player" poster="/api/placeholder/640/360">
+            <source src="solo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="play-button">
+            <svg viewBox="0 0 24 24" fill="none" class="play-icon">
+                <path d="M8 5v14l11-7z" fill="currentColor"/>
+            </svg>
+        </div>
+    </div>
+    <div class="video-info">
+        <h2 class="video-title">Solo Leveling Season 2 - Episode 8 Teaser</h2>
+        <div class="video-metadata">
+            <span class="duration">5 Sec</span>
+            <span class="separator">•</span>
+            <span class="release">Episode Coming Soon</span>
+        </div>
+    </div>
+</div>
+<script>
+function toggleVideo() {
+    const video = document.getElementById('teaser-video');
+    const playButton = document.querySelector('.play-button');
+    
+    if (video.paused) {
+        video.play();
+        playButton.classList.add('hidden');
+    } else {
+        video.pause();
+        playButton.classList.remove('hidden');
+    }
+}
+
+// Show play button when video ends
+document.getElementById('teaser-video').addEventListener('ended', function() {
+    document.querySelector('.play-button').classList.remove('hidden');
+});
+</script>
+
         <div class="countdown-container">
             <h2 class="countdown-title">Next Episode Countdown</h2>
             <div class="countdown-grid">
