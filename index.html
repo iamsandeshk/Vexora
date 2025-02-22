@@ -373,35 +373,6 @@
         </div>
     </div>
 </div>
-<script>
-function toggleVideo() {
-    const video = document.getElementById('teaser-video');
-    const playButton = document.querySelector('.play-button');
-    
-    if (video.paused) {
-        video.play();
-        playButton.classList.add('hidden');
-    } else {
-        video.pause();
-        playButton.classList.remove('hidden');
-    }
-}
-
-	function toggleFullScreen(e) {
-    e.stopPropagation();
-    const video = document.getElementById('teaser-video');
-    if (!document.fullscreenElement) {
-        video.requestFullscreen();
-    } else {
-        document.exitFullscreen();
-    }
-}
-
-// Show play button when video ends
-document.getElementById('teaser-video').addEventListener('ended', function() {
-    document.querySelector('.play-button').classList.remove('hidden');
-});
-</script>
 
         <div class="countdown-container">
             <h2 class="countdown-title">Next Episode Countdown</h2>
