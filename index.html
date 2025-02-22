@@ -291,6 +291,31 @@
         height: 25px;
     }
 }
+		
+.fullscreen-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.fullscreen-button:hover {
+    background: rgba(78, 205, 196, 0.9);
+}
+
+.fullscreen-icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
 </style>
 
 </head>
@@ -331,6 +356,12 @@
                 <path d="M8 5v14l11-7z" fill="currentColor"/>
             </svg>
         </div>
+	     <div class="fullscreen-button" onclick="toggleFullScreen(event)">
+            <svg viewBox="0 0 24 24" fill="none" class="fullscreen-icon">
+                <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="currentColor"/>
+            </svg>
+        </div>
+    </div>
     </div>
     <div class="video-info">
         <h2 class="video-title">Solo Leveling Season 2 - Episode 8 Teaser</h2>
@@ -352,6 +383,16 @@ function toggleVideo() {
     } else {
         video.pause();
         playButton.classList.remove('hidden');
+    }
+}
+
+	function toggleFullScreen(e) {
+    e.stopPropagation();
+    const video = document.getElementById('teaser-video');
+    if (!document.fullscreenElement) {
+        video.requestFullscreen();
+    } else {
+        document.exitFullscreen();
     }
 }
 
