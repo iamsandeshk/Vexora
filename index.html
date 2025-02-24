@@ -317,23 +317,12 @@
     height: 24px;
     color: white;
 }
-		 .content, .ad {
-      margin: 20px auto;
-      padding: 10px;
-      max-width: 400px;
-      background-color: #121212;
-      border-radius: 12px;
-    }
-    .content img, .ad img {
-      width: 100%;
-      border-radius: 12px;
-    }
 </style>
 
 </head>
 <body class="bg-gray-900 text-white">
     <!-- Navigation -->
- <div class="ad" id="container-581055821953cef341a30c3eda7f87f0"></div>
+ <div id="container-581055821953cef341a30c3eda7f87f0"></div>
     <nav class="nav-container">
         <div class="nav-content">
             <a href="index.html" class="logo">Vexora</a>
@@ -359,7 +348,7 @@
     <div class="container mx-auto px-6 py-16">
 	<div class="video-container">
     <div class="video-preview" onclick="toggleVideo()">
-          <video class="content" id="teaser-video" class="video-player" poster="/api/placeholder/640/360">
+          <video id="teaser-video" class="video-player" poster="/api/placeholder/640/360">
             <source src="Solo.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -414,7 +403,7 @@ document.getElementById('teaser-video').addEventListener('ended', function() {
 });
 </script>
 
-        <div class="countdown-container content">
+        <div class="countdown-container">
             <h2 class="countdown-title">Next Episode Countdown</h2>
             <div class="countdown-grid">
                 <div class="countdown-item">
@@ -444,7 +433,7 @@ document.getElementById('teaser-video').addEventListener('ended', function() {
         </div>
        
         <!-- Poll Section -->
-        <div class="max-w-2xl mx-auto mt-16 content">
+        <div class="max-w-2xl mx-auto mt-16">
             <h2 class="text-2xl font-bold mb-6">Will Server Break Again? Arise..</h2>
             <div id="poll-options">
                 <div class="poll-option" data-option="100%">
