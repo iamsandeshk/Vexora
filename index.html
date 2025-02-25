@@ -348,10 +348,10 @@
     <div class="container mx-auto px-6 py-16">
 	<div class="video-container">
     <div class="video-preview" onclick="toggleVideo()">
-          <video id="teaser-video" class="video-player" poster="/api/placeholder/640/360">
-            <source src="https://drive.google.com/file/d/1tptZ3Uiwnrj0QXXcZJljAmyi7TtyPUFP/preview" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+          <iframe id="teaser-video" class="video-player" 
+        src="https://drive.google.com/file/d/1tptZ3Uiwnrj0QXXcZJljAmyi7TtyPUFP/preview" 
+        width="640" height="360" allow="autoplay">
+</iframe>
         <div class="play-button">
             <svg viewBox="0 0 24 24" fill="none" class="play-icon">
                 <path d="M8 5v14l11-7z" fill="currentColor"/>
